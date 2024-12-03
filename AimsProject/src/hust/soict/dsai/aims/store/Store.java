@@ -1,64 +1,66 @@
 package aims.store;
 
 import aims.media.*;
+import java.util.ArrayList;;
 
 public class Store {
-    private DigitalVideoDisc[] itemsInStore;  // Array to hold DVDs
-    private int currentIndex;  // Tracks the current index in the store
+    private ArrayList<Media> itemsInStore = new ArrayList<>();  // Array to hold DVDs
 
-    // Default Constructor
-    public Store() {
-        itemsInStore = new DigitalVideoDisc[100000];  // Initialize the array
-        currentIndex = 0;  // Start from the first position in the store
-    }
-
-    // Constructor with a max items number
-    public Store(int maxItems) {
-        itemsInStore = new DigitalVideoDisc[maxItems];  // Initialize the array
-        currentIndex = 0;  // Start from the first position in the store
-    }
-
-    // Method to add a DVD to the store
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd) {
-        if (currentIndex < itemsInStore.length) {
-            itemsInStore[currentIndex] = dvd;  // Add DVD to the store
-            currentIndex++;  // Move to the next position
-            System.out.println("The DVD \"" + dvd.getTitle() + "\" has been added to the store!");
+    // Add a item to the store
+    public void addMedia(Media media) {
+        if (!itemsInStore.contains(media)) {
+            itemsInStore.add(media);
+            System.out.println("The item \"" + media.getTitle() + "\" has been added to the store!");
         } else {
-            System.out.println("The store is full. Cannot add more DVDs!");
+            System.out.println("The item \"" + media.getTitle() + "\" is already in the store!");
         }
     }
+    
 
-    // Method to remove a DVD from the store
-    public void removeDigitalVideoDisc(DigitalVideoDisc dvd) {
-        boolean found = false;
-        for (int i = 0; i < currentIndex; i++) {
-            if (itemsInStore[i].getId() == dvd.getId()) {  // Find DVD by ID
-                found = true;
-                // Shift items to the left to fill the gap
-                for (int j = i; j < currentIndex - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[currentIndex - 1] = null;  // Clear last item
-                currentIndex--;  // Decrease the number of DVDs in store
-                System.out.println("The DVD \"" + dvd.getTitle() + "\" has been removed from the store!");
-                break;
+    // Remove a item from the store
+    public void removeMedia (Media media) {
+        if (itemsInStore.contains(media)) {
+            itemsInStore.remove(media);
+            System.out.println("The item \"" + media.getTitle() + "\" has been removed!");
+        } else System.out.println("The item \"" + media.getTitle() + "\" is not in the cart!");
+    }   
+
+    public Media searchByTitle(String title) {
+        for (Media media : itemsInStore) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                System.out.println("\nFound the item with title \"" + title + "\": ");
+                media.displayInfo();
+                return media;
             }
         }
-        if (!found) {
-            System.out.println("The DVD with title '" + dvd.getTitle() + "' was not found in the store!");
-        }
+        System.out.println("No item found with title \"" + title + "\".");
+        return null;
     }
+
+    public Media searchById(int id) {
+        for (Media media : itemsInStore) {
+            if (media.getId() == id) {  // So sánh id của Media
+                System.out.println("Found item with ID: " + id + ": \n");
+                media.displayInfo();
+                return media;
+            }
+        }
+        System.out.println("No item found with ID: " + id);
+        return null;
+    }    
 
     // Method to display all DVDs in the store
     public void displayStore() {
         System.out.println("\n********* Store Inventory *********");
-        if (currentIndex == 0) {
+        if (itemsInStore.isEmpty()) {
             System.out.println("The store is empty.");
         } else {
-            for (int i = 0; i < currentIndex; i++) {
-                System.out.print((i + 1) + ". ");
-                itemsInStore[i].displayInfo();  // Display each DVD's info
+            System.out.println("Current items in store: " + itemsInStore.size() + " item(s).");
+            int index = 1;
+            for(Media media : itemsInStore) {
+                System.out.print(index + ". ");
+                media.displayInfo();  // Display each DVD's info
+                index++;
             }
         }
         System.out.println("***********************************");

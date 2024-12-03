@@ -1,6 +1,6 @@
 package aims.media;
 
-public class Disc extends Media {
+public abstract class Disc extends Media {
     private int length;
     private String director;
     private static int nbDisc = 0;
@@ -52,4 +52,6 @@ public class Disc extends Media {
         return nbDisc;
     }
     
+    //Display indo
+    public abstract void displayInfo();
 }

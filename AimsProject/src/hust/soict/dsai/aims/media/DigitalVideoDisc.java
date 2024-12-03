@@ -40,10 +40,6 @@ public class DigitalVideoDisc extends Disc implements Playable{
         nbDigitalVideoDisc++;
     }
 
-    //Kiểm tra xem có đúng Title không
-    public boolean isMatch(String title){
-        return this.getTitle().equalsIgnoreCase(title);
-    }
     
     //Hiển thị thông tin DVD
     public void displayInfo() {

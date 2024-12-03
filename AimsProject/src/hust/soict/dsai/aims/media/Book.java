@@ -21,13 +21,13 @@ public class Book extends Media {
     public Book(String title, String category, float cost) {
         super(title, category, cost);
         nbBook++;
-        this.authors = new ArrayList<>();
+        //this.authors = new ArrayList<>();
     }
 
     //By Title
     public Book(String title) {
         super(title);
-        this.authors = new ArrayList<>();
+        //this.authors = new ArrayList<>();
         nbBook++;
     }
 

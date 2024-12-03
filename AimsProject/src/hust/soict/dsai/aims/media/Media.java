@@ -64,5 +64,7 @@ public abstract class Media {
         this.cost = cost;
     }
 
+    //Display info
+    public abstract void displayInfo();
 
 }

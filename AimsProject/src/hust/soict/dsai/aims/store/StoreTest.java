@@ -1,40 +1,42 @@
 package aims.store;
 
-import aims.media.DigitalVideoDisc;
+import aims.media.*;
 
 public class StoreTest {
     public static void main(String[] args) {
-        Store store = new Store(5);//With or without max number of items allow
+        Store store = new Store();
 
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        store.addDigitalVideoDisc(dvd1);
+        store.addMedia(dvd1);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-        store.addDigitalVideoDisc(dvd2);
+        store.addMedia(dvd2);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        store.addDigitalVideoDisc(dvd3);
+        store.addMedia(dvd3);
         DigitalVideoDisc dvd4 = new DigitalVideoDisc("Toy Story", "Animation", "John Lasseter", 81, 17.99f);
-        store.addDigitalVideoDisc(dvd4);
+        store.addMedia(dvd4);
         DigitalVideoDisc dvd5 = new DigitalVideoDisc("Frozen", "Animation", "Chris Buck", 102, 16.99f);
-        store.addDigitalVideoDisc(dvd5);
+        store.addMedia(dvd5);
         DigitalVideoDisc dvd6 = new DigitalVideoDisc("Beauty and the Beast", "Animation", "Bill Condon", 129, 20.99f);
+        store.addMedia(dvd6);
+
+        CompactDisc cd1 = new CompactDisc("Thriller", "Music", "Epic Records", "Michael Jackso", 42, 14.99f);
+        store.addMedia(cd1);
+
+        Book book1 = new Book("Harry Potter", "Fantasy", 29.99f);
+        book1.addAuthor("J.K Rowling");
+        store.addMedia(book1);
+
+        store.searchByTitle("Thriller");
+        store.searchByTitle("Toy Story");
 
         //Display store's inventory
         store.displayStore();
 
-        //Try add more dvd when capacity is full
-        store.addDigitalVideoDisc(dvd6); //Capacity full
-
         //Remove a dvd
-        store.removeDigitalVideoDisc(dvd4); //Success
-        store.removeDigitalVideoDisc(dvd6); //Not found
+        store.removeMedia(dvd4); //Success
+        store.removeMedia(dvd6); //Not found
 
         //Display store's inventory after removal
-        store.displayStore();
-
-        //Add dvd 6 again
-        store.addDigitalVideoDisc(dvd6);
-        
-        //Final Result
         store.displayStore();
 
     }
