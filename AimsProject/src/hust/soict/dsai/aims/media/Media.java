@@ -1,5 +1,7 @@
 package aims.media;
 
+import java.util.Objects;
+
 public abstract class Media {
     private int id;
     private String title;
@@ -66,5 +68,18 @@ public abstract class Media {
 
     //Display info
     public abstract void displayInfo();
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // Same object reference
+        if (obj == null || getClass() != obj.getClass()) return false; // Null or different class
+        Media media = (Media) obj; // Cast to Media
+        return Objects.equals(title, media.title); // Compare titles
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title); // Hash based on title
+    }
 
 }

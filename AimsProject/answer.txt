@@ -1,0 +1,1 @@
+Khi bạn ghi đè phương thức equals() trong lớp Track (hoặc bất kỳ lớp nào), nếu đối tượng được truyền vào không phải là một thể hiện của lớp mà bạn đang làm việc, nếu đối tượng được truyền vào không phải là thể hiện của lớp, phương thức nên trả về false vì hai đối tượng thuộc các loại khác nhau sẽ không được coi là bằng nhau.

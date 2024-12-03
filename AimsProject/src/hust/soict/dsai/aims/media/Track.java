@@ -1,5 +1,7 @@
 package aims.media;
 
+import java.util.Objects;
+
 public class Track implements Playable{
     private String title;
     private int length;
@@ -17,6 +19,19 @@ public class Track implements Playable{
 
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // Same object reference
+        if (obj == null || getClass() != obj.getClass()) return false; // Null or different class
+        Track track = (Track) obj; // Cast to Track
+        return Objects.equals(title, track.title) && length == track.length; // Compare title and length
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, length); // Hash based on title and length
     }
 
     @Override
