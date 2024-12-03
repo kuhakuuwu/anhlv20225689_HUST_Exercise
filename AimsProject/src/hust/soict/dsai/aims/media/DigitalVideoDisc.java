@@ -1,6 +1,6 @@
 package aims.media;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable{
     //Đếm số lượng DVD hiện có 
     private static int nbDigitalVideoDisc = 0;
 
@@ -64,6 +64,14 @@ public class DigitalVideoDisc extends Disc {
         System.out.print(": " + getCost() + "$");
 
         System.out.println();
+    }
+
+    @Override
+    public void play() {
+        if (this.getLength() > 0) {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+        } else System.out.println("DVD \"" + this.getTitle() + "\" cannot be played!");
     }
 
 }
