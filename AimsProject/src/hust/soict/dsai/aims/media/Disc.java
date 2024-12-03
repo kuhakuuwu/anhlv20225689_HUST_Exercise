@@ -54,4 +54,7 @@ public abstract class Disc extends Media {
     
     //Display indo
     public abstract void displayInfo();
+
+    @Override
+    public abstract String toString();
 }

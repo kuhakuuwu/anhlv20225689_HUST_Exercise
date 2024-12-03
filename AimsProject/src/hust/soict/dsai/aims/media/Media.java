@@ -70,6 +70,9 @@ public abstract class Media {
     public abstract void displayInfo();
 
     @Override
+    public abstract String toString();
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // Same object reference
         if (obj == null || getClass() != obj.getClass()) return false; // Null or different class

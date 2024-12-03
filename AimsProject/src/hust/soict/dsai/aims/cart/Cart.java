@@ -44,8 +44,7 @@ public class Cart {
     public Media searchByTitle(String title) {
         for (Media media : itemsOrdered) {
             if (media.getTitle().equalsIgnoreCase(title)) {
-                System.out.println("\nFound the item with title \"" + title + "\": ");
-                media.displayInfo();
+                System.out.println("\nFound the item with title \"" + title + "\": " + media.toString());
                 return media;
             }
         }

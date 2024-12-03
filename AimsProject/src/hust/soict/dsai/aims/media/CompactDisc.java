@@ -116,6 +116,38 @@ public class CompactDisc extends Disc implements Playable{
         } else System.out.println("CD \"" + this.getTitle() + "\" cannot be played!");
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("CD - ").append(getTitle());
 
+        if (getCategory() != null) {
+            sb.append(" - ").append(getCategory());
+        } else {
+            sb.append(" - N/A");
+        }
+
+        if (getDirector() != null) {
+            sb.append(" - ").append(getDirector());
+        } else {
+            sb.append(" - N/A");
+        }
+
+        if (artist != null) {
+            sb.append(" - ").append(artist);
+        } else {
+            sb.append(" - N/A");
+        }
+
+        if (getLength() != 0) {
+            sb.append(" - ").append(getLength()).append(" mins");
+        } else {
+            sb.append(" - N/A");
+        }
+
+        sb.append(": ").append(getCost()).append("$");
+
+        return sb.toString();
+    }
 
 }

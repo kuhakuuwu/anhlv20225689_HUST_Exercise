@@ -82,5 +82,30 @@ public class Book extends Media {
         System.out.print(": " + getCost() + "$");
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Book - ").append(getTitle());
+
+        if (getCategory() != null) {
+            sb.append(" - ").append(getCategory());
+        } else {
+            sb.append(" - N/A");
+        }
+
+        if (!authors.isEmpty()) {
+            sb.append(" - Authors: ");
+            for (String author : authors) {
+                sb.append(author).append(" ");
+            }
+        } else {
+            sb.append(" - N/A");
+        }
+
+        sb.append(": ").append(getCost()).append("$");
+
+        return sb.toString();
+    }
     
 }
