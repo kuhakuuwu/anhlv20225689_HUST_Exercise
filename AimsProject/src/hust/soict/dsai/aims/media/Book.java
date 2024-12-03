@@ -103,7 +103,7 @@ public class Book extends Media {
             sb.append(" - N/A");
         }
 
-        sb.append(": ").append(getCost()).append("$");
+        sb.append(": ").append(getCost()).append("$\n");
 
         return sb.toString();
     }

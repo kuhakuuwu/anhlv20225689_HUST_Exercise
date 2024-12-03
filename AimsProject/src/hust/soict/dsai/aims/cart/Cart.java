@@ -2,6 +2,7 @@ package aims.cart;
 
 import aims.media.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -31,8 +32,7 @@ public class Cart {
     public Media searchById(int id) {
         for (Media media : itemsOrdered) {
             if (media.getId() == id) {
-                System.out.println("Found the item with ID " + id + ": \n");
-                media.displayInfo();
+                System.out.println("Found the item with ID " + id + ": \n" + media.toString());
                 return media;
             }
         }
@@ -44,12 +44,26 @@ public class Cart {
     public Media searchByTitle(String title) {
         for (Media media : itemsOrdered) {
             if (media.getTitle().equalsIgnoreCase(title)) {
-                System.out.println("\nFound the item with title \"" + title + "\": " + media.toString());
+                System.out.println("\nFound the item with title \"" + title + "\": \n" + media.toString());
                 return media;
             }
         }
-        System.out.println("\nNo item found with title \"" + title + "\"!");
+        System.out.println("\nNo item found with title \"" + title + "\"!\n");
         return null;
+    }
+
+    //Sort by Title then Cost
+    public void sortByTitleCost() {
+        System.out.println("Sort by Title then by Cost: ");
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Sorted complete!");
+    }
+
+    //Sort by Cost then Title
+    public void sortByCostTitle() {
+        System.out.println("Sort by Cost then by Title: ");
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Sorted complete!");
     }
 
     //Tổng giá trị sản phẩm trong giỏ
@@ -71,8 +85,7 @@ public class Cart {
             System.out.println("Current items in the cart: " + itemsOrdered.size() + " item(s).");
             System.out.println("***********************CART***********************");
             for (Media media : itemsOrdered) {
-                System.out.print(index + ". ");
-                media.displayInfo();
+                System.out.print(index + ". " + media.toString());
                 index++;
             }
             System.out.println("---------------------------------------------------");

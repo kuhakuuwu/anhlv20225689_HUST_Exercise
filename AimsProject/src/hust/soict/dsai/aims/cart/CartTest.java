@@ -8,20 +8,20 @@ public class CartTest {
         Cart cart = new Cart();
 
         //Create new DVD and add to Cart
-        Media dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
         cart.addMedia(dvd1);
 
-        Media dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         cart.addMedia(dvd2);
 
-        Media dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         cart.addMedia(dvd3);
 
-        Media cd1 = new CompactDisc("Thriller", "Music", "Epic Records", "Michael Jackso", 42, 14.99f);
+        CompactDisc cd1 = new CompactDisc("Thriller", "Music", "Epic Records", "Michael Jackso", 42, 14.99f);
         cart.addMedia(cd1);
 
-        Media book1 = new Book("Harry Potter", "Fantasy", 29.99f);
-        ((Book) book1).addAuthor("J.K Rowling");
+        Book book1 = new Book("Harry Potter", "Fantasy", 29.99f);
+        book1.addAuthor("J.K Rowling");
         cart.addMedia(book1);
 
         //Test the print method
@@ -34,6 +34,15 @@ public class CartTest {
         //Test Search by Ttitle
         cart.searchByTitle("Star Wars");
         cart.searchByTitle("abc");
+
+        //Test sorting
+        //Title then Cost
+        cart.sortByTitleCost();
+        cart.displayCart();
+
+        //Cost then Title
+        cart.sortByCostTitle();
+        cart.displayCart();
     }
 
 }

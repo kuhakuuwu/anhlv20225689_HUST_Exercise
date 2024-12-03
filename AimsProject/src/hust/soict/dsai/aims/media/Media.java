@@ -1,5 +1,6 @@
 package aims.media;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public abstract class Media {
@@ -8,6 +9,10 @@ public abstract class Media {
     private String category;
     private float cost;
     private static int nbMedia = 0;
+
+    //Static Comparators
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaSortByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaSortByCostTitle();
 
     //Constructor
     //All

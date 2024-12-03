@@ -1,7 +1,8 @@
 package aims.store;
 
 import aims.media.*;
-import java.util.ArrayList;;
+import java.util.ArrayList;
+import java.util.Collections;;
 
 public class Store {
     private ArrayList<Media> itemsInStore = new ArrayList<>();  // Array to hold DVDs
@@ -25,6 +26,7 @@ public class Store {
         } else System.out.println("The item \"" + media.getTitle() + "\" is not in the cart!");
     }   
 
+    //Search by Title
     public Media searchByTitle(String title) {
         for (Media media : itemsInStore) {
             if (media.getTitle().equalsIgnoreCase(title)) {
@@ -37,6 +39,7 @@ public class Store {
         return null;
     }
 
+    //Search by ID
     public Media searchById(int id) {
         for (Media media : itemsInStore) {
             if (media.getId() == id) {  // So sánh id của Media
@@ -49,6 +52,20 @@ public class Store {
         return null;
     }    
 
+    //Sort by Title then Cost
+    public void sortByTitleCost() {
+        System.out.println("Sort by Title then by Cost: ");
+        Collections.sort(itemsInStore, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Sorted complete!");
+    }
+
+    //Sort by Cost then Title
+    public void sortByCostTitle() {
+        System.out.println("Sort by Cost then by Title: ");
+        Collections.sort(itemsInStore, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Sorted complete!");
+    }
+
     // Method to display all DVDs in the store
     public void displayStore() {
         System.out.println("\n********* Store Inventory *********");
@@ -58,8 +75,7 @@ public class Store {
             System.out.println("Current items in store: " + itemsInStore.size() + " item(s).");
             int index = 1;
             for(Media media : itemsInStore) {
-                System.out.print(index + ". ");
-                media.displayInfo();  // Display each DVD's info
+                System.out.print(index + ". " + media.toString());
                 index++;
             }
         }

@@ -39,6 +39,15 @@ public class StoreTest {
         //Display store's inventory after removal
         store.displayStore();
 
+        //Test sorting
+        //Title then Cost
+        store.sortByTitleCost();
+        store.displayStore();
+
+        //Cost then Title
+        store.sortByCostTitle();
+        store.displayStore();
+
     }
 
 }
