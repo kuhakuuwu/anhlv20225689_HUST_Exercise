@@ -52,6 +52,34 @@ public class Cart {
         return null;
     }
 
+    // Filter by Title
+    public void filterByTitle(String title) {
+        boolean found = false;
+        for (Media media : itemsOrdered) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                System.out.println(media.toString());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("\nNo items found with the title \"" + title + "\"!\n");
+        }
+    }
+
+    // Filter by ID
+    public void filterById(int id) {
+        boolean found = false;
+        for (Media media : itemsOrdered) {
+            if (media.getId() == id) {
+                System.out.println(media.toString());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("\nNo items found with the ID " + id + "!\n");
+        }
+    }
+
     //Sort by Title then Cost
     public void sortByTitleCost() {
         System.out.println("Sort by Title then by Cost: ");
@@ -73,6 +101,22 @@ public class Cart {
             total += media.getCost();
         }
         return total;
+    }
+
+    //Tong so san pham trong gio hang
+    public int getNumberOfItemOrdered() {
+        return itemsOrdered.size();
+    }
+
+    //Xoa san pham trong gio hang
+    public boolean clear() {
+        if (itemsOrdered.isEmpty()) {
+            System.out.println("The cart is empty!");
+            return false;
+        } else {
+            itemsOrdered.clear();
+            return true;
+        }
     }
 
     //Hiển thị giỏ hàng
