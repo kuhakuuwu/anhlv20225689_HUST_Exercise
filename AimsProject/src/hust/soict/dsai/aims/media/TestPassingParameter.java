@@ -1,4 +1,4 @@
-package aims.disc;
+package aims.media;
 
 public class TestPassingParameter {
     public static void main(String[] args) {

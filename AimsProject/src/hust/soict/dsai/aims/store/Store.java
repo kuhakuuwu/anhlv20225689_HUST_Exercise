@@ -1,6 +1,6 @@
 package aims.store;
 
-import aims.disc.DigitalVideoDisc;
+import aims.media.*;
 
 public class Store {
     private DigitalVideoDisc[] itemsInStore;  // Array to hold DVDs
