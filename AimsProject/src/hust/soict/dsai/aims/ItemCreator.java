@@ -5,7 +5,7 @@ import aims.media.*;
 public class ItemCreator {
 
     public static Media createMedia(String input) {
-        String[] parts = input.split("-");
+        String[] parts = input.split(";");
         String mediaType = parts[0].toLowerCase(); // Normalize the media type to lowercase
 
         try {
@@ -30,11 +30,12 @@ public class ItemCreator {
                     return new CompactDisc(cdTitle, cdCategory, cdDirector, cdArtist, cdLength, cdCost);
 
                 case "book":
-                    // Format: book-title-category-author
+                    // Format: book-title-category-author-cost
                     String bookTitle = parts[1];
                     String bookCategory = parts[2];
                     String author = parts[3];
-                    Book book = new Book(bookTitle, bookCategory, 0.0f); // Default cost to 0.0
+                    Float bookCost = Float.parseFloat(parts[4]);
+                    Book book = new Book(bookTitle, bookCategory, bookCost); 
                     book.addAuthor(author);
                     return book;
 
