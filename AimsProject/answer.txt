@@ -1,0 +1,28 @@
+Khi bạn ghi đè phương thức equals() trong lớp Track (hoặc bất kỳ lớp nào), nếu đối tượng được truyền vào không phải là một thể hiện của lớp mà bạn đang làm việc, 
+nếu đối tượng được truyền vào không phải là thể hiện của lớp, phương thức nên trả về false vì hai đối tượng thuộc các loại khác nhau sẽ không được coi là bằng nhau.
+
+-------------------------------
+
+//Test trong phuong thuc displayCart trong class Cart
+Khi bạn sử dụng System.out.println(m.toString()), Java sẽ gọi phương thức toString() của đối tượng m. Nếu m là một đối tượng của lớp con (ví dụ: DigitalVideoDisc, CompactDisc, Book), 
+Java sẽ tự động gọi phương thức toString() tương ứng của lớp con đó nhờ tính đa hình.
+
+---------------------------------
+
+Lớp nào nên implement Comparable?
+Lớp Media nên implement Comparable để tất cả các lớp con của nó (như DigitalVideoDisc, CompactDisc, Book) có thể kế thừa và sử dụng phương thức 
+compareTo(). Điều này giúp sắp xếp tất cả các loại media trong danh sách mà không cần phải tạo từng Comparator riêng biệt.
+
+Cách implement compareTo()?
+Trong phương thức compareTo(), cần xác định thứ tự so sánh. Ví dụ:
+So sánh title trước (theo thứ tự alphabet).
+Nếu title giống nhau, tiếp theo so sánh cost (hoặc length nếu là DigitalVideoDisc hoặc CompactDisc)
+
+Có thể có hai quy tắc sắp xếp không?
+Không, khi sử dụng Comparable, chỉ có thể có một quy tắc sắp xếp duy nhất vì phương thức compareTo() chỉ có một cách để so sánh các đối tượng. 
+Tuy nhiên, có thể kết hợp nhiều trường hợp so sánh (ví dụ, title trước rồi cost) trong một phương thức compareTo() bằng cách sử dụng điều kiện logic.
+
+DVD có quy tắc sắp xếp khác?
+Có thể override phương thức compareTo() trong lớp DigitalVideoDisc để áp dụng quy tắc sắp xếp riêng cho DVD. Ví dụ, với DVD, 
+có thể so sánh theo title, sau đó là length theo thứ tự giảm dần, và cuối cùng là cost. 
+Việc này sẽ cho phép DVD có quy tắc sắp xếp riêng, khác với các loại media khác.

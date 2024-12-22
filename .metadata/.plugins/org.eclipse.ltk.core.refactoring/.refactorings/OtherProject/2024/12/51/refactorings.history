@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;hust.soict.dsai.garbage.ConcatenationInLoop.java&apos; to &apos;ConcatenationInLoops.java&apos;&#x0D;&#x0A;- Original project: &apos;OtherProject&apos;&#x0D;&#x0A;- Original element: &apos;hust.soict.dsai.garbage.ConcatenationInLoop.java&apos;&#x0D;&#x0A;- Renamed element: &apos;hust.soict.dsai.garbage.ConcatenationInLoops.java&apos;" description="Rename compilation unit &apos;ConcatenationInLoop.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;hust.soict.dsai.garbage{ConcatenationInLoop.java" name="ConcatenationInLoops.java" references="false" stamp="1734842392318" version="1.0"/>
+</session>
