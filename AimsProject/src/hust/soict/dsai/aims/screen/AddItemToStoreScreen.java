@@ -15,12 +15,14 @@ public abstract class AddItemToStoreScreen extends JFrame {
 	private JFrame storeScreen;
 	private JFrame cartScreen;
 	private Store store;
+	private Cart cart;
 
-    public AddItemToStoreScreen(JFrame storeScreen, JFrame cartScreen, Store store) {
+    public AddItemToStoreScreen(JFrame storeScreen, JFrame cartScreen, Store store, Cart cart) {
         super("Add Item to Store");
         this.storeScreen = storeScreen;
         this.cartScreen = cartScreen;
         this.store = store;
+        this.cart = cart;
 
         // Set up the JFrame
         this.setSize(1024, 768);
@@ -38,8 +40,7 @@ public abstract class AddItemToStoreScreen extends JFrame {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("addItem.fxml"));
                     String itemType = getItemType();
-                    JFrame curScreen = getCurrentScreen();
-                    AddItemToStoreController controller = new AddItemToStoreController(storeScreen, cartScreen, curScreen, store, itemType);
+                    AddItemToStoreController controller = new AddItemToStoreController(storeScreen, cartScreen, getCurrentScreen(), store, cart, itemType);
                     loader.setController(controller); // Set the controller for this screen
                     Parent root = loader.load(); // Load the FXML file
 

@@ -135,7 +135,7 @@ private ObservableList<Media> itemsOrdered;
     
     @FXML
     void handleViewStore(ActionEvent event) {
-    	System.out.println("Clicked!");
+    	System.out.println("View store clicked!");
         if (storeScreen != null && cartScreen != null) {
             storeScreen.setVisible(true);
             cartScreen.setVisible(false);
