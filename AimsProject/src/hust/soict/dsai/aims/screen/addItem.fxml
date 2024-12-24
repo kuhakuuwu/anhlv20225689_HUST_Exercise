@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox prefHeight="60.0" style="-fx-background-color: #0c00ae;" BorderPane.alignment="CENTER">
@@ -23,13 +22,13 @@
                   <items>
                       <Menu mnemonicParsing="false" text="Update Store">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Add Book" />
-                              <MenuItem mnemonicParsing="false" text="Add DVD" />
-                              <MenuItem mnemonicParsing="false" text="Add CD" />
+                          <MenuItem mnemonicParsing="false" onAction="#handleAddBookPressed" text="Add Book" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleAddDvdPressed" text="Add DVD" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleAddCdPressed" text="Add CD" />
                         </items>
                       </Menu>
-                    <MenuItem mnemonicParsing="false" text="View Store" />
-                        <MenuItem mnemonicParsing="false" text="View Cart" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleViewStorePressed" text="View Store" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleViewCartPressed" text="View Cart" />
                   </items>
                 </Menu>
               </menus>
@@ -66,7 +65,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="titleReader" />
+                  <TextField fx:id="titleReader" promptText="Input Title" />
                   <Label layoutX="10.0" layoutY="45.0" text="Category">
                      <font>
                         <Font size="20.0" />
@@ -75,7 +74,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="categoryReader" layoutX="91.0" layoutY="48.0" />
+                  <TextField fx:id="categoryReader" layoutX="91.0" layoutY="48.0" promptText="Input Category" />
                   <Label layoutX="486.0" layoutY="45.0" text="Cost">
                      <font>
                         <Font size="20.0" />
@@ -84,7 +83,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="costReader" layoutX="577.0" layoutY="48.0" />
+                  <TextField fx:id="costReader" layoutX="577.0" layoutY="48.0" promptText="Input Cost" />
                   <Label fx:id="directorLabel" layoutX="227.0" layoutY="45.0" text="Director">
                      <font>
                         <Font size="20.0" />
@@ -93,7 +92,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="directorReader" layoutX="327.0" layoutY="48.0" />
+                  <TextField fx:id="directorReader" layoutX="327.0" layoutY="48.0" promptText="Input Director" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -114,8 +113,8 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="authorReader" layoutX="573.0" layoutY="48.0" />
-                  <Button fx:id="confirmAuthorBtn" mnemonicParsing="false" text="Add">
+                  <TextField fx:id="authorReader" layoutX="573.0" layoutY="48.0" promptText="Input Author (1 each time)" />
+                  <Button fx:id="addAuthorBtn" mnemonicParsing="false" onAction="#btnAddAuthorPressed" text="Add">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -125,13 +124,13 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="artistReader" />
+                  <TextField fx:id="artistReader" promptText="Input Artist" />
                   <Label fx:id="lengthLabel" text="Length">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="lengthReader" />
+                  <TextField fx:id="lengthReader" promptText="Input Length" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -152,7 +151,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="trackTitleReader" />
+                  <TextField fx:id="trackTitleReader" promptText="Input Track Title" />
                   <Label fx:id="trackLengthLabel" text="Length">
                      <font>
                         <Font size="20.0" />
@@ -161,8 +160,8 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="trackLengthReader" />
-                  <Button fx:id="addTrackBtn" mnemonicParsing="false" text="Add">
+                  <TextField fx:id="trackLengthReader" promptText="Input Track Length" />
+                  <Button fx:id="addTrackBtn" mnemonicParsing="false" onAction="#btnAddTrackPressed" text="Add">
                      <font>
                         <Font size="16.0" />
                      </font>
